@@ -5,20 +5,28 @@ issueTrackerSystem.controller('HomeController', [
     '$location',
     '$window',
     'authenticationService',
+    'authorizationService',
     'notificationService',
     'userService',
-    function($scope, $location, $window, authenticationService, notificationService, userService) {
+    function($scope, $location, $window, authenticationService, authorizationService, notificationService, userService) {
         let getCurrentUserInfo = function() {
             userService.getCurrentUser()
                 .then(function(currentUser) {
                     sessionStorage['userName'] = currentUser.username;
                     sessionStorage['userId'] = currentUser._id;
-                    sessionStorage['sessionId'] = currentUser._kmd.authtoken;
+                    console.log(sessionStorage);
+
+                    $scope.currentUser = currentUser;
+                    $scope.username = currentUser.username;
+
+                    $location.path('/#');
 
                 }, function(error) {
                     notificationService.showError('Request failed' + error.statusText);
                 })
         };
+
+        $scope.userData = authorizationService;
 
         $scope.login = function login(user) {
             authenticationService.loginUser(user)
