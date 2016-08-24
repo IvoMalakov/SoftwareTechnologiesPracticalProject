@@ -1,0 +1,59 @@
+<h2 class="page-header"><strong class="aquaColor">ADD an Issue for user with id: {{issue.userId}}</strong></h2>
+
+<div class="row logreg">
+    <div class="col-md-4 col-md-offset-4">
+        <form name="addIssueForm">
+            <label for="addIssueTitle">Title</label>
+            <input type="text"
+                   id="addIssueTitle"
+                   class="form-control form-group"
+                   required="required"
+                   placeholder="Title"
+                   ng-model="issue.Title" />
+
+            <label for="addIssueDescription">Description</label>
+            <textarea rows="5"
+                      id="addIssueDescription"
+                      class="form-control form-group"
+                      required="required"
+                      placeholder="Description"
+                      ng-model="issue.Description"></textarea>
+
+            <label for="addIssueAuthor">Author</label>
+            <input type="text"
+                   id="addIssueAuthor"
+                   class="form-control form-group"
+                   required="required"
+                   placeholder="Author"
+                   ng-model="issue.Author" />
+
+            <label for="addIssueDate">Due Date</label>
+            <input type="text"
+                   id="addIssueDate"
+                   class="form-control form-group"
+                   required="required"
+                   placeholder="mm/dd/yyyy"
+                   ng-model="issue.DueDate" />
+
+            <div>
+                <label for="addIssueState">State: </label>
+                <div>
+                    <select id="addIssueState"
+                            required="required"
+                            ng-model="issue.State">
+                        <option value="New">New</option>
+                        <option value="Open">Open</option>
+                        <option value="Fixed">Fixed</option>
+                        <option value="Close">Closed</option>
+                    </select>
+                </div>
+            </div>
+
+            <br />
+            <button type="submit"
+                    class="btn btn-primary"
+                    ng-disabled="addIssueForm.$invalid"
+                    ng-click="addIssue(issue)">Add Issue</button>
+        </form>
+    </div>
+</div>
