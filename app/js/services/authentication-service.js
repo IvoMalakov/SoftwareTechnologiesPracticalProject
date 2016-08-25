@@ -24,7 +24,7 @@ issueTrackerSystem.factory('authenticationService', [
                     }),
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-Kinvey-Api-Version': 1,
+                        'X-VersionKinvey-Api-': 1,
                         'Authorization': 'Basic ' + btoa(token)
                     }
                 };
