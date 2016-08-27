@@ -14,13 +14,15 @@ issueTrackerSystem.factory('authenticationService', [
 
                 username = registerUser.username,
                 password = registerUser.userPassword,
+                email = registerUser.userEmail,
 
                 request = {
                     method: 'POST',
                     url: BASE_URL + 'user/' + APP_ID + '/',
                     data: JSON.stringify({
                         username : username,
-                        password : password
+                        password : password,
+                        email : email
                     }),
                     headers: {
                         'Content-Type': 'application/json',

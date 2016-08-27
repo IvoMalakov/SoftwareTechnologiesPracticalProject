@@ -6,7 +6,7 @@ issueTrackerSystem.factory('userService',[
     function($http, $q, BASE_URL, APP_ID) {
 
         function getCurrentUser() {
-            var deferred = $q.defer(),
+            let deferred = $q.defer(),
 
                 request = {
                     method: 'GET',
@@ -35,12 +35,8 @@ issueTrackerSystem.factory('userService',[
 
         }
 
-        function changePassword(user) {
-
-        }
-
         function logOut() {
-            var deferred = $q.defer(),
+            let deferred = $q.defer(),
 
                 request = {
                     method: 'POST',
@@ -64,7 +60,6 @@ issueTrackerSystem.factory('userService',[
             getCurrentUser: getCurrentUser,
             getAllUsers: getAllUsers,
             makeAdmin: makeAdmin,
-            changePassword: changePassword,
             logOut: logOut
         }
     }

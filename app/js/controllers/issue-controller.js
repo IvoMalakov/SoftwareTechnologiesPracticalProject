@@ -13,6 +13,11 @@ issueTrackerSystem.controller('IssueController', [
             loggedUser = authorizationService.getLoggedUserName();
 
         $scope.isAdmin = authorizationService.isAdmin();
+        $scope.showComments = false;
+
+        $scope.show = function() {
+            $scope.showComments = !$scope.showComments;
+        };
 
         $scope.getAllIssues = function() {
             issueService.getAllIssues()

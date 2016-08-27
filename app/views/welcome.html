@@ -7,10 +7,14 @@
             <ul class="nav navbar-nav">
                 <li><a href="#/login" ng-if="!userData.isLoggedUser()">Login</a></li>
                 <li><a href="#/register" ng-if="!userData.isLoggedUser()">Register</a></li>
-                <li ng-controller="IssueController"><a href="#/issues">View All Issues</a></li>
+                <li><a href="#/issues">View All Issues</a></li>
                 <li><a href="#/add" ng-if="userData.isLoggedUser()">Add New Issue</a></li>
                 <li><a href="#/logout" ng-if="userData.isLoggedUser()">Logout</a></li>
             </ul>
         </div>
     </nav>
+
+    <div ng-if="userData.isLoggedUser()">
+        <div class="user-profile" profile-directive></div>
+    </div>
 </div>

@@ -5,9 +5,9 @@ issueTrackerSystem.factory('issueService', [
     '$q',
     'BASE_URL',
     'APP_ID',
-    'APP_SECRET',
-    function($http, $q, BASE_URL, APP_ID, APP_SECRET) {
-        let token = APP_ID + ':' + APP_SECRET;
+    'MASTER_KEY',
+    function($http, $q, BASE_URL, APP_ID, MASTER_KEY) {
+        let token = APP_ID + ':' + MASTER_KEY;
 
         function addIssue(issue) {
             let deffered = $q.defer(),
@@ -40,7 +40,7 @@ issueTrackerSystem.factory('issueService', [
                     method: 'GET',
                     url: BASE_URL + 'appdata/' + APP_ID + '/Issues/',
                     headers: {
-                        'Authorization': 'Kinvey ' + sessionStorage['token'],
+                        'Authorization': 'Basic ' + btoa(token),
                         'X-Kinvey-Api-Version': 3
                     }
                 };

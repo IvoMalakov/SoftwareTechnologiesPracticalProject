@@ -8,6 +8,11 @@ issueTrackerSystem.controller('UserController', [
     'notificationService',
     'userService',
     function($scope, $location, $window, $timeout, notificationService, userService) {
+        $scope.showForm = false;
+
+        $scope.show = function() {
+          $scope.showForm = !$scope.showForm;
+        };
 
         $scope.logout = function logout() {
             userService.logOut()
@@ -32,15 +37,6 @@ issueTrackerSystem.controller('UserController', [
                     notificationService.showInfo('User was made as admin' ,data);
                 }, function(error) {
                     notificationService.showError('Request failed ' + error.statusText);
-                });
-        };
-
-        $scope.changePassword = function changePassword(user) {
-            userService.changePassword(user)
-                .then(function(data) {
-                    notificationService.showInfo('Password is schanged' ,data);
-                }, function(error) {
-                    notificationService.showError('Password is not changed', error);
                 });
         };
 

@@ -14,10 +14,13 @@ issueTrackerSystem.controller('HomeController', [
                 .then(function(currentUser) {
                     sessionStorage['userName'] = currentUser.username;
                     sessionStorage['userId'] = currentUser._id;
+                    sessionStorage['userEmail'] = currentUser.email;
                     console.log(sessionStorage);
 
                     $scope.currentUser = currentUser;
                     $scope.username = currentUser.username;
+                    $scope.userEmail = currentUser.email;
+                    $scope.userPreview = true;
 
                     $location.path('/#');
 

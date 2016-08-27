@@ -25,5 +25,12 @@
       margin-left: 30px; }
     * body .aquaColor {
       color: aqua; }
+    * body .user-profile h4 {
+      font-size: 40px;
+      color: red; }
+    * body .user-profile .user-identification {
+      color: #31b0d5; }
+    * body .user-profile p {
+      font-size: 25px; }
 
 /*# sourceMappingURL=style.css.map */
