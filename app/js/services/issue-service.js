@@ -34,12 +34,12 @@ issueTrackerSystem.factory('issueService', [
             return deffered.promise;
         }
 
-        function getAllIssues() {
-            var deferred = $q.defer(),
+        function getAllIssues(skippedItems, pageSize) {
+            let deferred = $q.defer(),
 
                 request = {
                     method: 'GET',
-                    url: BASE_URL + 'appdata/' + APP_ID + '/Issues/',
+                    url: BASE_URL + 'appdata/' + APP_ID + '/Issues/?query={}&limit=' + pageSize+ '&skip=' + skippedItems,
                     headers: {
                         'Authorization': 'Basic ' + btoa(token),
                         'X-Kinvey-Api-Version': 3
@@ -58,7 +58,7 @@ issueTrackerSystem.factory('issueService', [
 
         return {
             addIssue: addIssue,
-            getAllIssues: getAllIssues
+            getAllIssues: getAllIssues,
         }
     }
 ]);
