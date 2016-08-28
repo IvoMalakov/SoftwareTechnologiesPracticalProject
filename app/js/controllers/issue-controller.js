@@ -7,7 +7,8 @@ issueTrackerSystem.controller('IssueController', [
     'issueService',
     'notificationService',
     'authorizationService',
-    function($scope, $location, $routeParams, issueService, notificationService, authorizationService) {
+    'PAGE_SIZE',
+    function($scope, $location, $routeParams, issueService, notificationService, authorizationService, PAGE_SIZE) {
 
         let issueId = $routeParams.id,
             loggedUser = authorizationService.getLoggedUserName();
@@ -28,6 +29,6 @@ issueTrackerSystem.controller('IssueController', [
                 }, function(error) {
                     notificationService.showError('Request failed' + error.statusText);
                 })
-        }
+        };
     }
 ]);

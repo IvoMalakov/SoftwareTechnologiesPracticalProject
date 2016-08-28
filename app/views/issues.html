@@ -11,7 +11,7 @@
                         <th>Title</th>
                         <th>Description</th>
                         <th>Author</th>
-                        <th>Due Date</th>
+                        <th>Due Date and Time</th>
                         <th>State</th>
                     </tr>
                     </thead>
@@ -26,6 +26,15 @@
                     </tr>
                     </tbody>
                 </table>
+            </div>
+            <div class="text-center">
+                <pagination
+                        total-items="500"
+                        ng-model="issueRequestParams.pageNumber"
+                        items-per-page="issueRequestParams.pageSize"
+                        ng-change="getIssues(issueRequestParams)"
+                        max-size="10" boundary-links="true">
+                </pagination>
             </div>
         </div>
     </div>

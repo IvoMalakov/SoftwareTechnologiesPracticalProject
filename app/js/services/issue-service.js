@@ -6,7 +6,8 @@ issueTrackerSystem.factory('issueService', [
     'BASE_URL',
     'APP_ID',
     'MASTER_KEY',
-    function($http, $q, BASE_URL, APP_ID, MASTER_KEY) {
+    'PAGE_SIZE',
+    function($http, $q, BASE_URL, APP_ID, MASTER_KEY, PAGE_SIZE) {
         let token = APP_ID + ':' + MASTER_KEY;
 
         function addIssue(issue) {
