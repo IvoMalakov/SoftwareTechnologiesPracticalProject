@@ -2,11 +2,7 @@
 
 issueTrackerSystem.controller('CommonController', [
     '$scope',
-    '$location',
-    'authenticationService',
-    'notificationService',
-    'userService',
-    function($scope, $location, authenticationService, notificationService, userService) {
+    function($scope) {
 
         $scope.currentUser = {
             UserName: sessionStorage.userName,

@@ -1,0 +1,29 @@
+<h2 class="page-header"><strong class="aquaColor">ADD new comment for issue with id: {{issueById._id}}</strong></h2>
+
+<div class="row logreg">
+    <div class="col-md-4 col-md-offset-4">
+        <form name="addCommentForm">
+            <label for="addCommentAuthor">Author</label>
+            <input type="text"
+                   id="addCommentAuthor"
+                   class="form-control form-group"
+                   required="required"
+                   placeholder="Author"
+                   ng-model="comment.Author" />
+
+            <label for="addCommentText">Text</label>
+            <textarea rows="5"
+                      id="addCommentText"
+                      class="form-control form-group"
+                      required="required"
+                      placeholder="Text"
+                      ng-model="comment.Text"></textarea>
+
+            <br />
+            <button type="submit"
+                    class="btn btn-primary"
+                    ng-disabled="addCommentForm.$invalid"
+                    ng-click="addComment(comment)">Add Comment</button>
+        </form>
+    </div>
+</div>

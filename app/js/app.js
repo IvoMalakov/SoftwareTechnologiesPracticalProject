@@ -24,18 +24,12 @@ issueTrackerSystem.config(['$routeProvider', function($routeProvider) {
 
         .when('/logout', {
             templateUrl: 'views/logout.html',
-            controller: 'UserController',
-            data: {
-                requireLogin: true
-            }
+            controller: 'UserController'
         })
 
         .when('/add', {
             templateUrl: 'views/add-issue.html',
-            controller: 'AddIssueController',
-            data: {
-                requireLogin: true
-            }
+            controller: 'AddIssueController'
         })
 
         .when('/issues', {
@@ -45,10 +39,17 @@ issueTrackerSystem.config(['$routeProvider', function($routeProvider) {
 
         .when('/issues/:_id', {
             templateUrl: 'views/issue-details.html',
-            controller: 'IssueDetailController',
-            data: {
-                requireLogin: true
-            }
+            controller: 'IssueDetailController'
+        })
+
+        .when('/issues/:_id/comments' , {
+            templateUrl: 'views/comments.html',
+            controller: 'IssueDetailController'
+        })
+
+        .when('/issues/:_id/add-comment', {
+            templateUrl: 'views/addAComment.html',
+            controller: "IssueDetailController"
         })
 
         .otherwise({redirectTo: '/'})

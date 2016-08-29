@@ -5,8 +5,9 @@ issueTrackerSystem.controller('IssueDetailController', [
     '$location',
     '$routeParams',
     'issueService',
+    'commentService',
     'notificationService',
-    function($scope, $location, $routeParams, issueService, notificationService) {
+    function($scope, $location, $routeParams, issueService, commentService, notificationService) {
         let issueId = $routeParams._id,
 
             getIssueById = function getIssueById(id) {
@@ -20,5 +21,31 @@ issueTrackerSystem.controller('IssueDetailController', [
             };
 
         getIssueById(issueId);
+
+        function getCommentsByIssueId() {
+            commentService.getCommentsByIssueId(issueId)
+                .then(function(response) {
+                    notificationService.showInfo('Comments taked successful');
+                    $scope.comments = response.data;
+                }, function(error) {
+                    notificationService.showError('Request failed', error.statusText);
+                })
+        };
+
+        $scope.addComment = function addComment(comment) {
+            comment.IssueId = issueId;
+
+            commentService.addComment(comment)
+                .then(function () {
+                    notificationService.showInfo('Comment added successful');
+                    $location.path('/issues/');
+                }, function (error) {
+                    notificationService.showError('Request failed!', error.statusText);
+                });
+        };
+
+        $scope.IssueId = issueId;
+
+        getCommentsByIssueId();
     }
 ]);

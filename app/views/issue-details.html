@@ -1,5 +1,5 @@
 <header>
-    <h3>Issue with Id : {{issueById._id}}</h3>
+    <h3>Issue with Id : <span class="text-danger">{{issueById._id}}</span></h3>
 </header>
 
 <div class="jumbotron row">
@@ -11,6 +11,7 @@
         <th>Author</th>
         <th>Due Date and Time</th>
         <th>State</th>
+        <th>Owner</th>
         </thead>
 
         <tbody>
@@ -21,12 +22,18 @@
             <td>{{issueById.Author}}</td>
             <td>{{issueById.DueDate}}</td>
             <td>{{issueById.State}}</td>
+            <td>{{issueById.UserOwner}}</td>
         </tr>
         </tbody>
     </table>
 
     <div class="comments">
-        <button class="btn btn-primary">View Comments</button>
-        <button class="btn btn-danger">Add new Comment</button>
+        <a href="#/issues/{{issueById._id}}/comments">
+            <button class="btn btn-primary">View Comments</button>
+        </a>
+
+        <a href="#/issues/{{issueById._id}}/add-comment">
+            <button class="btn btn-danger">Add new Comment</button>
+        </a>
     </div>
 </div>
