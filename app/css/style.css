@@ -17,6 +17,11 @@
         font-size: 40px;
         margin-bottom: 20px;
         color: #DA5024; }
+      * body header h3 {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 20px;
+        color: aqua; }
     * body h2 {
       text-align: center;
       font-size: 40px;
@@ -32,5 +37,10 @@
       color: #31b0d5; }
     * body .user-profile p {
       font-size: 25px; }
+    * body .comments {
+      margin: 20px; }
+      * body .comments button {
+        margin: 10px;
+        border-radius: 15px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -56,9 +56,32 @@ issueTrackerSystem.factory('issueService', [
             return deferred.promise;
         }
 
+        function getIssueById(id) {
+            let deffered = $q.defer(),
+
+                request = {
+                    method: 'GET',
+                    url: BASE_URL + 'appdata/' + APP_ID + '/Issues/' + id,
+                    headers: {
+                        'X-Kinvey-Api-Version': 3,
+                        'Authorization': 'Basic ' + btoa(token)
+                    }
+                };
+
+            $http(request)
+                .then(function (response) {
+                    deffered.resolve(response);
+                }, function(error) {
+                    deffered.reject(error);
+                });
+
+            return deffered.promise;
+        }
+
         return {
             addIssue: addIssue,
             getAllIssues: getAllIssues,
+            getIssueById: getIssueById
         }
     }
 ]);

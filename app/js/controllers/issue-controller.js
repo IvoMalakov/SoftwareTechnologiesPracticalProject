@@ -10,9 +10,6 @@ issueTrackerSystem.controller('IssueController', [
     'PAGE_SIZE',
     function($scope, $location, $routeParams, issueService, notificationService, authorizationService, PAGE_SIZE) {
 
-        let issueId = $routeParams.id,
-            loggedUser = authorizationService.getLoggedUserName();
-
         $scope.isAdmin = authorizationService.isAdmin();
         $scope.showComments = false;
 

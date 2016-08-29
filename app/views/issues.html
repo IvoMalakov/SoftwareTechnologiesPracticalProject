@@ -17,11 +17,14 @@
 
                     <tbody ng-show="issuesPreview">
                     <tr ng-repeat="Issue in allIssues">
-                        <td>{{Issue.Title}}</td>
+                        <td><a href="#/issues/{{Issue._id}}">{{Issue.Title}}</a></td>
                         <td>{{Issue.Description}}</td>
                         <td>{{Issue.Author}}</td>
                         <td>{{Issue.DueDate}}</td>
                         <td>{{Issue.State}}</td>
+                        <td><a href="#/issues/{{Issue._id}}">
+                            <button class="btn-sm">View Details</button>
+                        </a></td>
                     </tr>
                     </tbody>
                 </table>

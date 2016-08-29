@@ -43,6 +43,14 @@ issueTrackerSystem.config(['$routeProvider', function($routeProvider) {
             controller: 'IssueController'
         })
 
+        .when('/issues/:_id', {
+            templateUrl: 'views/issue-details.html',
+            controller: 'IssueDetailController',
+            data: {
+                requireLogin: true
+            }
+        })
+
         .otherwise({redirectTo: '/'})
 }]);
 
