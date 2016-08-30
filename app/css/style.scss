@@ -60,12 +60,43 @@
       }
     }
 
+    .editIssue {
+      button {
+        border-radius: 15px;
+        width: 320px;
+        font-size: 20px;
+      }
+    }
+
+    #editIssueButton {
+      margin-top: 45px;
+      margin-left: -145px;
+
+      button {
+        margin: 10px;
+        width: 93px;
+        border-radius: 15px;
+      }
+    }
+
     .comments {
       margin: 20px;
 
       button {
         margin: 10px;
         border-radius: 15px;
+      }
+    }
+
+    footer {
+      margin: 20px auto auto 20px;
+      padding: 20px;
+      text-align: center;
+
+      button {
+        padding: 10px;
+        border-radius: 15px;
+        background-color: white;
       }
     }
   }

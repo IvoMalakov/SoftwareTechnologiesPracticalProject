@@ -33,7 +33,13 @@
         </a>
 
         <a href="#/issues/{{issueById._id}}/add-comment">
-            <button class="btn btn-danger">Add new Comment</button>
+            <button class="btn btn-success">Add new Comment</button>
+        </a>
+    </div>
+
+    <div class="editIssue" ng-controller="HomeController" ng-if="userData.isLoggedUser()">
+        <a href="#issues/{{issueById._id}}/edit">
+            <button class="btn btn-danger">Edit Issue</button>
         </a>
     </div>
 </div>

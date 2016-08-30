@@ -28,7 +28,25 @@ issueTrackerSystem.factory('userService',[
         }
 
         function getAllUsers() {
+            let deferred = $q.defer(),
 
+                request = {
+                    method: 'GET',
+                    url: BASE_URL + 'Users/',
+                    headers: {
+                        Authorization: 'Bearer ' + sessionStorage['token']
+                    }
+                };
+
+            $http(request)
+                .then(function(response) {
+                    deferred.resolve(response.data);
+                    var users = response.data;
+                }, function(error) {
+                    deferred.reject(error);
+                });
+
+            return deferred.promise;
         }
 
         function makeAdmin(id) {

@@ -52,6 +52,11 @@ issueTrackerSystem.config(['$routeProvider', function($routeProvider) {
             controller: "IssueDetailController"
         })
 
+        .when('/issues/:_id/edit', {
+            templateUrl: 'views/edit-issue.html',
+            controller: 'EditIssueController'
+        })
+
         .otherwise({redirectTo: '/'})
 }]);
 

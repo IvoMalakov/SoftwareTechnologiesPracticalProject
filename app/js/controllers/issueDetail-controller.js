@@ -30,6 +30,7 @@ issueTrackerSystem.controller('IssueDetailController', [
                 .then(function(response) {
                     //notificationService.showInfo('Comments taken successful');
                     $scope.comments = response.data;
+                    $scope.commentsPreview = true;
                 }, function(error) {
                     notificationService.showError('Request failed', error.statusText);
                 })

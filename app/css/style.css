@@ -37,10 +37,29 @@
       color: #31b0d5; }
     * body .user-profile p {
       font-size: 25px; }
+    * body .editIssue button {
+      border-radius: 15px;
+      width: 320px;
+      font-size: 20px; }
+    * body #editIssueButton {
+      margin-top: 45px;
+      margin-left: -145px; }
+      * body #editIssueButton button {
+        margin: 10px;
+        width: 93px;
+        border-radius: 15px; }
     * body .comments {
       margin: 20px; }
       * body .comments button {
         margin: 10px;
         border-radius: 15px; }
+    * body footer {
+      margin: 20px auto auto 20px;
+      padding: 20px;
+      text-align: center; }
+      * body footer button {
+        padding: 10px;
+        border-radius: 15px;
+        background-color: white; }
 
 /*# sourceMappingURL=style.css.map */

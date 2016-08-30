@@ -16,7 +16,7 @@
                     </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody ng-show="commentsPreview">
                     <tr ng-repeat="comment in comments">
                         <td>{{comment.Author}}</td>
                         <td>{{comment._id}}</td>

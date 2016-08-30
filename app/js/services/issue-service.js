@@ -68,7 +68,7 @@ issueTrackerSystem.factory('issueService', [
                 };
 
             $http(request)
-                .then(function (response) {
+                .then(function(response) {
                     deffered.resolve(response);
                 }, function(error) {
                     deffered.reject(error);
@@ -77,10 +77,35 @@ issueTrackerSystem.factory('issueService', [
             return deffered.promise;
         }
 
+        function editIssue(issue, id) {
+            let deffered = $q.defer(),
+
+                request = {
+                    method: 'PUT',
+                    url: BASE_URL + 'appdata/' + APP_ID + '/Issues/' + id,
+                    data: JSON.stringify(issue),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Kinvey-Api-Version': 1,
+                        'Authorization': 'Kinvey ' + sessionStorage['token']
+                    }
+                };
+
+            $http(request)
+                .then(function(response) {
+                    deffered.resolve(response);
+                }, function(error) {
+                    deffered.reject(error)
+                });
+
+            return deffered.promise;
+        }
+
         return {
             addIssue: addIssue,
             getAllIssues: getAllIssues,
-            getIssueById: getIssueById
+            getIssueById: getIssueById,
+            editIssue: editIssue
         }
     }
 ]);

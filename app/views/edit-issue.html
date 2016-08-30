@@ -1,0 +1,52 @@
+<h2 class="page-header"><strong class="aquaColor">EDIT Issue</strong></h2>
+
+<div class="row logreg">
+    <div class="col-md-4 col-md-offset-4">
+        <form name="editIssueForm">
+
+            <label for="editIssueTitle">Title</label>
+            <input type="text"
+                   id="editIssueTitle"
+                   class="form-control form-group"
+                   placeholder="Title"
+                   required="required"
+                   ng-model="issue.Title"
+                   ng-value= "issue.Title" />
+
+            <label for="editIssueDescription">Description</label>
+            <textarea rows="5"
+                      id="editIssueDescription"
+                      class="form-control form-group"
+                      required="required"
+                      placeholder="Description"
+                      ng-model="issue.Description"></textarea>
+
+            <div>
+                <label for="editIssueState">State: </label>
+                <div>
+                    <select id="editIssueState"
+                            required="required"
+                            class="form-control form-group"
+                            ng-model="issue.State">
+                        <option value="New">New</option>
+                        <option value="Open">Open</option>
+                        <option value="Fixed">Fixed</option>
+                        <option value="Close">Closed</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div id="editIssueButton">
+                <a href="#/issues/{{issue._id}}">
+                    <button class="btn btn-primary pull-right">Cancel</button>
+                </a>
+
+                <button type="submit"
+                        class="btn btn-danger"
+                        ng-disabled="editIssueForm.$invalid"
+                        ng-click="editIssue(issue)">Edit Issue</button>
+            </div>
+        </form>
+    </div>
+</div>

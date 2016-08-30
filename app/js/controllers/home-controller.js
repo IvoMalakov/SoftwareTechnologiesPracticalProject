@@ -22,7 +22,7 @@ issueTrackerSystem.controller('HomeController', [
                     $scope.userEmail = currentUser.email;
                     $scope.userPreview = true;
 
-                    $location.path('/#');
+                    $location.path('#/welcome');
 
                 }, function(error) {
                     notificationService.showError('Request failed' + error.statusText);
