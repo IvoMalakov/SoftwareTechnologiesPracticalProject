@@ -22,7 +22,7 @@ issueTrackerSystem.controller('IssueController', [
 
             issueService.getAllIssues(skippedItemes, PAGE_SIZE)
                 .then(function(resolve) {
-                    notificationService.showInfo('Issues are taken successful');
+                    //notificationService.showInfo('Issues are taken successful');
                     $scope.issuesPreview = true;
                     $scope.allIssues = resolve.data;
                 }, function(error) {
