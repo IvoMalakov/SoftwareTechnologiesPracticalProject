@@ -18,9 +18,9 @@ issueTrackerSystem.controller('IssueController', [
         };
 
         $scope.getAllIssues = function(params) {
-            let skippedItemes = (params.pageNumber - 1) * PAGE_SIZE;
+            let skippedItems = (params.pageNumber - 1) * PAGE_SIZE;
 
-            issueService.getAllIssues(skippedItemes, PAGE_SIZE)
+            issueService.getAllIssues(skippedItems, PAGE_SIZE)
                 .then(function(resolve) {
                     //notificationService.showInfo('Issues are taken successful');
                     $scope.issuesPreview = true;

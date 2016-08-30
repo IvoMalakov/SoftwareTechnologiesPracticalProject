@@ -33,12 +33,13 @@ issueTrackerSystem.factory('commentService', [
             return deffered.promise;
         }
 
-        function getCommentsByIssueId(id) {
+        function getCommentsByIssueId(skippedItems, pageSize, id) {
             let deffered = $q.defer(),
 
                 request = {
                     method: 'GET',
-                    url: BASE_URL + 'appdata/' + APP_ID + '/Comments/?query={"IssueId":"' + id + '"}',
+                    url: BASE_URL + 'appdata/' + APP_ID + '/Comments/?query={"IssueId":"' + id + '"}' +
+                    '&limit=' + pageSize+ '&skip=' + skippedItems,
                     headers: {
                         'X-Kinvey-Api-Version': 1,
                         'Authorization': 'Basic ' + btoa(token)

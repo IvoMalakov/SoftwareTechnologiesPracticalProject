@@ -7,7 +7,8 @@ issueTrackerSystem.controller('IssueDetailController', [
     'issueService',
     'commentService',
     'notificationService',
-    function($scope, $location, $routeParams, issueService, commentService, notificationService) {
+    'PAGE_SIZE',
+    function($scope, $location, $routeParams, issueService, commentService, notificationService, PAGE_SIZE) {
         let issueId = $routeParams._id,
 
             getIssueById = function getIssueById(id) {
@@ -16,16 +17,18 @@ issueTrackerSystem.controller('IssueDetailController', [
                         notificationService.showInfo('Issue taken successful');
                         $scope.issueById = response.data;
                     }, function(error) {
-                        notificationService.showError('Reques failed', error.statusText);
+                        notificationService.showError('Request failed', error.statusText);
                     })
             };
 
         getIssueById(issueId);
 
-        function getCommentsByIssueId() {
-            commentService.getCommentsByIssueId(issueId)
+        $scope.getCommentsByIssueId = function getCommentsByIssueId(params) {
+            let skippedItems = (params.pageNumber - 1) * PAGE_SIZE;
+
+            commentService.getCommentsByIssueId(skippedItems, PAGE_SIZE, issueId)
                 .then(function(response) {
-                    notificationService.showInfo('Comments taked successful');
+                    //notificationService.showInfo('Comments taken successful');
                     $scope.comments = response.data;
                 }, function(error) {
                     notificationService.showError('Request failed', error.statusText);
@@ -38,7 +41,7 @@ issueTrackerSystem.controller('IssueDetailController', [
             commentService.addComment(comment)
                 .then(function () {
                     notificationService.showInfo('Comment added successful');
-                    $location.path('/issues/');
+                    $location.path('/issues/' + issueId + '/comments/');
                 }, function (error) {
                     notificationService.showError('Request failed!', error.statusText);
                 });
@@ -46,6 +49,15 @@ issueTrackerSystem.controller('IssueDetailController', [
 
         $scope.IssueId = issueId;
 
-        getCommentsByIssueId();
+        $scope.commentRequestParams = {
+            pageNumber: 1,
+            pageSize: PAGE_SIZE
+        };
+
+        $scope.reloadComments = function() {
+            $scope.getCommentsByIssueId($scope.commentRequestParams);
+        };
+
+        $scope.getCommentsByIssueId($scope.commentRequestParams);
     }
 ]);
