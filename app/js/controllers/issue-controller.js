@@ -11,11 +11,6 @@ issueTrackerSystem.controller('IssueController', [
     function($scope, $location, $routeParams, issueService, notificationService, authorizationService, PAGE_SIZE) {
 
         $scope.isAdmin = authorizationService.isAdmin();
-        $scope.showComments = false;
-
-        $scope.show = function() {
-            $scope.showComments = !$scope.showComments;
-        };
 
         $scope.getAllIssues = function(params) {
             let skippedItems = (params.pageNumber - 1) * PAGE_SIZE;

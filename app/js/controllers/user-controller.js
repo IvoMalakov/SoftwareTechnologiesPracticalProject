@@ -8,11 +8,6 @@ issueTrackerSystem.controller('UserController', [
     'notificationService',
     'userService',
     function($scope, $location, $window, $timeout, notificationService, userService) {
-        $scope.showForm = false;
-
-        $scope.show = function() {
-          $scope.showForm = !$scope.showForm;
-        };
 
         $scope.logout = function logout() {
             userService.logOut()
